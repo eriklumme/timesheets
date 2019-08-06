@@ -1,0 +1,27 @@
+.timesheet-grid__entry-header {
+    display: flex;
+    font-size: var(--lumo-font-size-s);
+}
+
+.timesheet-grid__entry-client {
+    margin-right: var(--lumo-space-m);
+    font-weight: 600;
+    @apply --text-ellipsis;
+}
+
+.timesheet-grid__entry-project {
+    @apply --text-ellipsis;
+}
+
+.timesheet-grid__entry-comment {
+    margin: var(--lumo-space-xs) 0;
+}
+
+.timesheet-grid__entry-time {
+    font-size: var(--lumo-font-size-s);
+}
+
+.timesheet-grid__entry-duration {
+    margin-right: var(--lumo-space-m);
+    font-weight: 600;
+}
