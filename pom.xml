@@ -176,6 +176,7 @@
             <id>production</id>
             <properties>
                 <vaadin.productionMode>true</vaadin.productionMode>
+                <spring.profiles.active>production</spring.profiles.active>
             </properties>
 
             <dependencies>
