@@ -1,11 +1,11 @@
 package org.erik.timesheets.domain.service;
 
-import com.github.javafaker.Faker;
 import com.vaadin.flow.spring.annotation.VaadinSessionScope;
 import org.erik.timesheets.domain.dto.ClientDTO;
 import org.erik.timesheets.domain.dto.ProjectDTO;
 import org.erik.timesheets.domain.dto.TimesheetEntryDTO;
 import org.erik.timesheets.domain.dto.UserDTO;
+import org.erik.timesheets.utils.FakerUtils;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -21,7 +21,6 @@ import java.util.stream.IntStream;
 @VaadinSessionScope
 public class TimesheetEntryService {
 
-    private static final Faker faker = new Faker();
     private static final Random random = new Random();
 
     private final UserService userService;
@@ -49,7 +48,7 @@ public class TimesheetEntryService {
                     allUsers.get(random.nextInt(allUsers.size())),
                     allProejcts.get(random.nextInt(allProejcts.size())),
                     allClients.get(random.nextInt(allClients.size())),
-                    String.join(" ", faker.words(random.nextInt(8) + 3)),
+                    FakerUtils.getComment(),
                     startTime, endTime
             );
         }).collect(Collectors.toList());

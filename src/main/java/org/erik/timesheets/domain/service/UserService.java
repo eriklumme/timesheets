@@ -1,8 +1,8 @@
 package org.erik.timesheets.domain.service;
 
-import com.github.javafaker.Faker;
 import com.vaadin.flow.spring.annotation.VaadinSessionScope;
 import org.erik.timesheets.domain.dto.UserDTO;
+import org.erik.timesheets.utils.FakerUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,12 +13,11 @@ import java.util.stream.IntStream;
 @VaadinSessionScope
 public class UserService {
 
-    private final static Faker faker = new Faker();
     private final static List<UserDTO> allUsers;
 
     static {
         allUsers = IntStream.range(0, 50)
-                .mapToObj(i -> new UserDTO(faker.firstName(), faker.lastName()))
+                .mapToObj(i -> new UserDTO(FakerUtils.getFirstName(), FakerUtils.getLastName()))
                 .collect(Collectors.toList());
     }
 

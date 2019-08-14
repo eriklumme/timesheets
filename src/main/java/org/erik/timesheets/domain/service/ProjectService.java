@@ -1,9 +1,9 @@
 package org.erik.timesheets.domain.service;
 
-import com.github.javafaker.Faker;
 import com.vaadin.flow.spring.annotation.VaadinSessionScope;
 import org.erik.timesheets.domain.dto.ClientDTO;
 import org.erik.timesheets.domain.dto.ProjectDTO;
+import org.erik.timesheets.utils.FakerUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.Comparator;
@@ -16,8 +16,6 @@ import java.util.stream.IntStream;
 @VaadinSessionScope
 public class ProjectService {
 
-    private static final Faker faker = new Faker();
-
     private static final Random random = new Random();
 
     private final List<ProjectDTO> allProjects;
@@ -27,7 +25,7 @@ public class ProjectService {
 
         allProjects = IntStream.range(0, 40).mapToObj(i ->
                 new ProjectDTO(allClients.get(random.nextInt(allClients.size())),
-                        String.join(" ", faker.words(2))))
+                        FakerUtils.getProject()))
                 .collect(Collectors.toList());
     }
 
