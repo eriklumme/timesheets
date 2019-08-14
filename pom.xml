@@ -180,7 +180,6 @@
             <id>production</id>
             <properties>
                 <vaadin.productionMode>true</vaadin.productionMode>
-                <spring.profiles.active>production</spring.profiles.active>
             </properties>
 
             <dependencies>
@@ -198,6 +197,9 @@
                         <configuration>
                             <jvmArguments>-Dvaadin.productionMode</jvmArguments>
                             <executable>true</executable>
+                            <profiles>
+                                <profile>production</profile>
+                            </profiles>
                         </configuration>
                     </plugin>
                     <plugin>
