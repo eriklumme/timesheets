@@ -7,6 +7,8 @@ import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
@@ -120,6 +122,13 @@ public class TimesheetEntryDialog extends Dialog {
                 timesheetEntry.setUser(userService.getCurrentUser());
                 onCreateListener.accept(timesheetEntry);
                 close();
+            } else {
+                Notification notification = new Notification(
+                        "There are errors in the time entry",
+                        3000,
+                        Notification.Position.TOP_CENTER);
+                notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
+                notification.open();
             }
         });
 
